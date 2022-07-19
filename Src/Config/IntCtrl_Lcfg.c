@@ -13,6 +13,8 @@
  *  INCLUDES
  *********************************************************************************************************************/
 #include "Std_Types.h"
+#include "IntCtrl_Types.h"
+#include "IntCtrl.h"
 
 /**********************************************************************************************************************
 *  LOCAL MACROS CONSTANT\FUNCTION
@@ -25,7 +27,30 @@
 /**********************************************************************************************************************
  *  GLOBAL DATA
  *********************************************************************************************************************/
+const int IntCtrl_NumOfInterrupts =4;
+ 
+const IntCtrl_IntCFgType IntCFg_arr[]=
+ {
+		//{interruptype		,  priority (3bits)
+			{INTCTRL_GPIO_PORTA, 7},
+			{INTCTRL_CAN0, 1},
+			{INTCTRL_PWM1_FAULT,5},
+			{INTCTRL_SYSTEM_EXCEPRION,6}
+ };
 
+const int IntCtrl_NumOfExceptions =7;
+ 
+const IntCtrl_ExceptionCFgType ExpCFg_arr[]=
+ {
+		//{interruptype		,  priority (3bits)
+			{INTCTRL_USAGE_FAULT, 7},
+			{ INTCTRL_SYS_TICK , 6},
+			{ INTCTRL_MEMORY_MANEGMENT , 5},
+			{ INTCTRL_BUS_FAULT, 3},
+			{ INTCTRL_SVCALL , 4},
+			{ INTCTRL_PEND_CV , 1},
+			{ INTCTRL_DEBUG_MONITOR , 2},
+ };
 
 
 /**********************************************************************************************************************

@@ -20,6 +20,13 @@
  *  GLOBAL CONSTANT MACROS
  *********************************************************************************************************************/
 
+/* PRIGROUP VALUES:				GROOUP:								SUB-GROUP:
+		<=4    	XXX						0:7											0
+		==5   	XX.Y					0:3											0:1
+		==6			X.YY					0:1											0:3
+		==7 		YYY						0												0:7       (NO PREEMPRION)
+NEXT VALUE DETERMINE THE Interrupt Priority Grouping*/
+#define 	PRIGROUP  7
 
 /**********************************************************************************************************************
  *  GLOBAL FUNCTION MACROS
