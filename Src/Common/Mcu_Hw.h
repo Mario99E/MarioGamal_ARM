@@ -46,6 +46,10 @@ typedef struct
 #define SYSPRI2                                  *((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0xD1C))
 #define SYSPRI3                                  *((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0xD20))
 #define SYSHNDCTRL                                  *((volatile uint32*)(CORTEXM4_PERI_BASE_ADDRESS+0xD24))	
+#define RCC                                  *((volatile uint32*)(0x400fe060))	
+#define RCGCTIMER                                  *((volatile uint32*)(0x400fe604))	
+#define RCGCGPIO                             				*((volatile int*)(0x400fe604))
+	
 
 /**********************************************************************************************************************
  *  GLOBAL DATA PROTOTYPES
