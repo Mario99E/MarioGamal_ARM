@@ -1,17 +1,26 @@
 
 #include <IntCtrl.h>
 #include <SysCtrl.h>
-#define RCGCGPIO                                  *((volatile uint32*)(0x400FE000+0x608))
-#define GPIO                                  ((volatile uint32*)(0x40007000))
-	#define GPIODIR                                  *((volatile uint32*)(0x40007000+0x400))
+#include <GPIO_header.h>
+#define 	GPIO_PORTC_BASE_APB				((volatile uint32*)(0x40006000))
+#define 	GPIO_PORTA_BASE_APB				((volatile uint32*)(0x40004000))
+
+		
+
 int main ()
 {
-	SysCtrl_EnablePeripheralClock(SysCtrl_GPIO_PORTA_Clock );
-	SysCtrl_EnablePeripheralClock(SysCtrl_GPIO_PORTF_Clock );
-	SysCtrl_Init();
-	//RCGCGPIO|=(1<<3);
-	GPIODIR|=0xff;
-	*(GPIO+0xff)|=0x5ff;
+	int x =0xf<<3;
+
+	GPIO_Interface led;
+	led.interfaceType = GPIO_PIN_INTERFACE;
+	led.interface.pinInterface.pin = GPIO_PIN_A3;
+	led.interface.pinInterface.dir = GPIO_OUTPUT_OPEN_DRAIN;
+	led.interface.pinInterface.function = GPIO_NORMAL_FUNCTION;
+	led.interface.pinInterface.bus = GPIO_AHB;
+	GPIO_PinInit(led);
+	GPIO_PinWrite(led.interface.pinInterface,GPIO_HIGH);
+	GPIO_PinWrite(led.interface.pinInterface,GPIO_LOW);
+	///	*(GPIO_PORTA_BASE_APB+0x0f) ) =0xff;
 	
 	
 	//while(1)
