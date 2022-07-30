@@ -33,7 +33,7 @@ const IntCtrl_IntCFgType IntCFg_arr[]=
  {
 		//{interruptype		,  priority (3bits)
 			{INTCTRL_GPIO_PORTA, 7},
-			{INTCTRL_CAN0, 1},
+			{INTCTRL_16_32_BIT_TIMER0A, 0},
 			{INTCTRL_PWM1_FAULT,5},
 			{INTCTRL_SYSTEM_EXCEPRION,6}
  };

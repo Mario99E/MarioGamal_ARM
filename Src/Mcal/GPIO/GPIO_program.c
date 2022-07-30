@@ -274,6 +274,9 @@ void GPIO_PinInit(GPIO_Interface myInterface)
 							case 5:
 								SysCtrl_EnablePeripheralClock(SysCtrl_GPIO_PORTF_Clock);break;
 						}
+						//wait for mora than 4 clocks 
+						for(int i=0;i<5;i++)
+						;
 						//bus
 						GPIO_PortPeripheralBus mybus =myInterface.interface.pinInterface.bus;
 						if (mybus== GPIO_APB)
